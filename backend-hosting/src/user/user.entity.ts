@@ -1,7 +1,7 @@
 import { Base } from "../utils/base";
 import { VideoEntity } from "src/video/video.entity";
 import { Column, Entity, OneToMany } from "typeorm";
-import { SubscriptionEnity } from "./subscription.entity";
+import { SubscriptionEntity } from "./subscription.entity";
 import { CommentEntity } from "src/comment/comment.entity";
 
 @Entity('User') //название таблицы
@@ -30,11 +30,11 @@ export class UserEntity extends Base {
     @OneToMany(() => VideoEntity, video => video.user)
     videos: VideoEntity[]
 
-    @OneToMany(() => SubscriptionEnity, sub => sub.fromUser)
-    subscriptions: SubscriptionEnity[];
+    @OneToMany(() => SubscriptionEntity, sub => sub.fromUser)
+    subscriptions: SubscriptionEntity[];
 
-    @OneToMany(() => SubscriptionEnity, sub => sub.toChannel)
-    subscribers: SubscriptionEnity[];
+    @OneToMany(() => SubscriptionEntity, sub => sub.toChannel)
+    subscribers: SubscriptionEntity[];
 
     @OneToMany(() => CommentEntity, comment => comment.user)
     comments: CommentEntity[]

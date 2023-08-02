@@ -15,7 +15,7 @@ import { AuthModule } from './auth/auth.module';
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
-      useFactory: getTypeOrmConfig,
+      useFactory: getTypeOrmConfig
     }),
     UserModule,
     VideoModule,
