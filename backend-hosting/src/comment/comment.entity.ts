@@ -8,7 +8,7 @@ export class CommentEntity extends Base {
     @Column({type: 'text'})
     message: string;
 
-    @ManyToOne(() => UserEntity, user => user.comments)
+    @ManyToOne(() => UserEntity/*, user => user.comments*/)
     @JoinColumn({name: 'user_id'})
     user: UserEntity;
 

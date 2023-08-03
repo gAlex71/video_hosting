@@ -36,6 +36,6 @@ export class UserEntity extends Base {
     @OneToMany(() => SubscriptionEntity, sub => sub.toChannel)
     subscribers: SubscriptionEntity[];
 
-    @OneToMany(() => CommentEntity, comment => comment.user)
-    comments: CommentEntity[]
+    // @OneToMany(() => CommentEntity, comment => comment.user)
+    // comments: CommentEntity[]
 }
