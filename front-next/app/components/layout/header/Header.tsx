@@ -1,7 +1,13 @@
-const Header = () => {
+import { FC } from "react";
+import styles from './Header.module.scss';
+import Search from "./Search/Search";
+import IconsRight from "./IconsRight/IconsRight";
+
+const Header: FC = () => {
     return (
-        <header>
-            Header
+        <header className={styles.header}>
+            <Search />
+            <IconsRight />
         </header>
     )
 }
