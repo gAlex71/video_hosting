@@ -15,27 +15,27 @@
                 @apply mb-0;
             }
 
-            > a {
-                @apply flex items-center text-gray-500 font-medium relative;
+    .link {
+        @apply flex items-center text-gray-500 font-medium relative;
 
-                &.active {
-                    @apply text-white;
-                    > span {
-                        @apply bg-primary;
-                    }
-                }
+        &.active {
+            @apply text-white;
+            > span {
+                @apply bg-primary;
+            }
+        }
 
-                > span {
-                    @apply mr-4 p-2 rounded-xl;
-                    background-color: #363440;
+        > span {
+            @apply mr-4 p-2 rounded-xl;
+            background-color: #363440;
 
-                    &.image {
-                        @apply overflow-hidden p-0 shadow flex items-center justify-center;
-                        margin-right: 1rem !important;
-                        background: none;
-                        border: 1px solid #363440;
-                    }
-                }
+            &.image {
+                @apply overflow-hidden p-0 shadow flex items-center justify-center;
+                margin-right: 1rem !important;
+                background: none;
+                border: 1px solid #363440;
+            }
+        }
 
                 > b {
                     @apply font-normal;

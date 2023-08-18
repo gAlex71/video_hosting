@@ -17,14 +17,14 @@ const MenuItem: FC<{item: IMenuItem}> = ({item}) => {
   return (
     <li>
         <Link href={item.link}>
-            <a className={asPath === item.link ? styles.active : ''}>
+            <div className={`${styles.link} ${asPath === item.link && styles.active}`}>
                 <span className={item.image ? styles.image : ''}>
                     {item.icon && <item.icon />}
                     {item.image && <Image src={item.image} width={40} height={40} alt={item.title} />}
                 </span>
 
                 <b>{item.title}</b>
-            </a>
+            </div>
         </Link>
     </li>
   )

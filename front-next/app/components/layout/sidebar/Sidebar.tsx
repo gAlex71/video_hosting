@@ -7,7 +7,7 @@ const Sidebar = () => {
     return (
         <aside className={styles.sidebar}>
             <Link href='/'>
-                <a className={styles.logo}>VideoHost</a>
+                <div className={styles.logo}>VideoHost</div>
             </Link>
 
             <Menu title='Меню' items={menuData} />
