@@ -6,6 +6,9 @@ import { useAuth } from '@/hooks/useAuth';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { IAuthFields } from './AuthForm.interface';
 import { FaUserCircle } from 'react-icons/fa';
+import Field from '@/components/ui/Field/Field';
+import { validEmail } from './Auth.validate';
+import Button from '@/components/ui/Button/Button';
 
 const AuthForm = () => {
   const { ref, setIsShow, isShow } = useOutside(false);
@@ -25,8 +28,41 @@ const AuthForm = () => {
 
   const authForm = () => {
     return (
-      <form className={styles.from} onSubmit={handleSubmit(onSubmit)}>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <Field 
+          {...register('email', {
+            required: 'E-mail обязателен!',
+            pattern: {
+              value: validEmail,
+              message: 'Неверный формат e-mail'
+            }
+          })}
+          placeholder='E-mail'
+          error={errors.email}
+        />
+        <Field 
+          {...register('password', {
+            required: 'Пароль обязателен!',
+            minLength: {
+              value: 6,
+              message: 'Минимальная длина пароля - 6 символов'
+            }
+          })}
+          placeholder='Пароль'
+          error={errors.password}
+          type='password'
+        />
 
+
+        <div className='mt-5 mb-1 text-center'>
+          <Button onClick={() => setType('login')}>
+            Войти
+          </Button>
+        </div>
+
+        <button className={styles.register} onClick={() => setType('register')}>
+          Регистрация
+        </button>
       </form>
     )
   }
