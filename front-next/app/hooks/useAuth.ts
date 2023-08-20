@@ -1,6 +1,4 @@
-import { IAuthData } from "@/services/auth/auth.helper";
+import { useTypedSelector } from "./useTypedSelector";
 
-export const useAuth = ():IAuthData => ({
-    user: null,
-    accessToken: ''
-})
+//Получаем стор с авторизацией
+export const useAuth = () => useTypedSelector(state => state.auth);
