@@ -9,20 +9,23 @@ import { FaUserCircle } from 'react-icons/fa';
 import Field from '@/components/ui/Field/Field';
 import { validEmail } from './Auth.validate';
 import Button from '@/components/ui/Button/Button';
+import { useActions } from '@/hooks/useActions';
 
 const AuthForm = () => {
   const { ref, setIsShow, isShow } = useOutside(false);
   const [ type, setType ] = useState<'login' | 'register'>('login');
 
-  // const { isLoading } = useAuth();
+  const { login, register: registerAction } = useActions();
+
+  const { isLoading } = useAuth();
 
   const {register, formState: {errors}, handleSubmit} = useForm<IAuthFields>({mode: 'onChange'});
 
   const onSubmit: SubmitHandler<IAuthFields> = data => {
     if(type === 'login'){
-      //action
+      login(data)
     }else{
-      //action
+      registerAction(data)
     }
   }
 
@@ -55,12 +58,12 @@ const AuthForm = () => {
 
 
         <div className='mt-5 mb-1 text-center'>
-          <Button onClick={() => setType('login')}>
+          <Button onClick={() => setType('login')} disabled={isLoading}>
             Войти
           </Button>
         </div>
 
-        <button className={styles.register} onClick={() => setType('register')}>
+        <button className={styles.register} onClick={() => setType('register')} disabled={isLoading}>
           Регистрация
         </button>
       </form>
