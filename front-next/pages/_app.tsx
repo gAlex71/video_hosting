@@ -5,8 +5,13 @@ import { persistor, store } from '@/store/store'
 import { PersistGate } from 'redux-persist/integration/react'
 import ReduxToastr from 'react-redux-toastr'
 import NextProgressBar from 'nextjs-progressbar'
+import { TypeComponentAuthFields } from '@/providers/private-route.interface'
+import AuthProvider from '@/providers/AuthProvider'
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+//Расширяем базовый тип
+type TypeAppProps = AppProps & TypeComponentAuthFields
+
+export default function MyApp({ Component, pageProps }: TypeAppProps) {
 	return (
 		<>
 			<NextProgressBar
@@ -18,16 +23,18 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
 			<Provider store={store}>
 				<PersistGate persistor={persistor} loading={null}>
-					<Component {...pageProps} />
-					<ReduxToastr
-						newestOnTop={false}
-						preventDuplicates
-						progressBar
-						closeOnToastrClick
-						timeOut={4000}
-						transitionIn='fadeIn'
-						transitionOut='fadeOut'
-					/>
+					<AuthProvider Component={Component}>
+						<Component {...pageProps} />
+						<ReduxToastr
+							newestOnTop={false}
+							preventDuplicates
+							progressBar
+							closeOnToastrClick
+							timeOut={4000}
+							transitionIn='fadeIn'
+							transitionOut='fadeOut'
+						/>
+					</AuthProvider>
 				</PersistGate>
 			</Provider>
 		</>
