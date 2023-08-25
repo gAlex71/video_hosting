@@ -41,12 +41,12 @@ const ProfileMenu = () => {
           <ul>
             <li>
               <Link href={`/c/${user?.id}`}>
-                <a>Мой канал</a>
+                <div>Мой канал</div>
               </Link>
             </li>
             <li>
               <Link href={`/studio`}>
-                <a>Студия</a>
+                <div>Студия</div>
               </Link>
             </li>
             <li>
