@@ -7,9 +7,9 @@ import { IHome } from "./Home.interface";
 const Home: FC<IHome> = ({newVideos, topVideo, randomVideo}) => {
     return (
         <Layout title="ВидеоХостинг">
-            <Discover />
+            <Discover topVideo={topVideo} randomVideo={randomVideo}/>
 
-            <Catalog />
+            <Catalog newVideos={newVideos}/>
         </Layout>
     )
 }
