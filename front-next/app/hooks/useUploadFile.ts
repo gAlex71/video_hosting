@@ -3,14 +3,13 @@ import { MediaService } from "@/services/media/media.service"
 import { errorCatch } from "@/utils/api.utils"
 import { useMutation } from "react-query"
 
-type useUploadsProps = {
-    folder?: string,
+//Используем react-query, для загрузки и отслеживания видео с axios
+export const useUploadFile = (
     onChange: (...event: any) => void,
+    folder?: string,
     setValue?: (val: number) => void,
     setIsChosen?: Dispatch<SetStateAction<boolean>>
-}
-//Используем react-query, для загрузки и отслеживания видео с axios
-export const useUploadFile = ({folder, onChange, setValue, setIsChosen}: useUploadsProps) => {
+) => {
     const {mutateAsync} = useMutation('upload file', (data: FormData) => MediaService.upload(data, folder, setValue), {
         onSuccess: ({data}) => {
             onChange(data)
