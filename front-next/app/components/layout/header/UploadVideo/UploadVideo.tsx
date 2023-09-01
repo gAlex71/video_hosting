@@ -3,6 +3,7 @@ import styles from './UploadVideo.module.scss'
 import { videoApi } from '@/store/api/video.api'
 import { HiUpload } from 'react-icons/hi'
 import stylesIcon from '../IconsRight/IconsRight.module.scss'
+import UploadModal from './UploadModal'
 
 const UploadVideo = () => {
 	const [isOpen, setOpen] = useState(false)
@@ -26,6 +27,8 @@ const UploadVideo = () => {
 			>
 				<HiUpload />
 			</button>
+
+			<UploadModal isOpen={isOpen} setIsOpen={setOpen} videoId={videoId} />
 		</>
 	)
 }
