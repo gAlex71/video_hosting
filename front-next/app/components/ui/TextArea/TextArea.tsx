@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import styles from './Field.module.scss';
+import styles from './TextArea.module.scss';
 import { ITextArea } from './TextArea.interface';
 
 //forwardRef - для правильной передачи ref

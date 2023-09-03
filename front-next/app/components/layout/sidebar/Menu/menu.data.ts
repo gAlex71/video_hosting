@@ -10,7 +10,7 @@ export const menuData: IMenuItem[] = [
     {
         title: 'Тренды',
         icon: HiChartBar,
-        link: '/trending'
+        link: '/trends'
     },
     {
         title: 'Мой канал',
