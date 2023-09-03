@@ -11,7 +11,7 @@ const HomePage: NextPageAuth<IHome> = (props) => {
         <Home {...props}/>
     )
 };
-
+//Вынести
 export const getStaticProps: GetStaticProps = async () => {
     try {
         const {data: newVideos} = await VideoService.getAll();
